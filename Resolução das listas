@@ -1,0 +1,739 @@
+Resolução da lista 2 completa
+
+Exercício 1 
+//Pedro Henrique Camargo dos Santos
+
+
+#include <stdio.h>
+#include <stdbool.h>
+
+// Função para verificar se um número é primo
+bool primo(int num) {
+    if (num < 2) {
+        return false;  // Números menores que 2 não são primos
+    }
+    for (int i = 2; i * i <= num; i++) {
+        if (num % i == 0) {
+            return false;  // Se for divisível por qualquer número, não é primo
+        }
+    }
+    return true;
+}
+
+// Função para calcular a soma dos N primeiros números primos
+int somaPrimos(int N) {
+    int soma = 0;
+    int contador = 0;
+    int num = 2;  // Começamos a verificar a partir do número 2
+
+    while (contador < N) {
+        if (primo(num)) {
+            soma += num;
+            contador++;
+        }
+        num++;
+    }
+    return soma;
+}
+
+// Função para exibir o resultado
+void exibirResultado(int N, int soma) {
+    printf("A soma dos %d primeiros números primos é: %d\n", N, soma);
+}
+
+// Função para ler o valor de N
+int lerValorN() {
+    int N;
+    printf("Digite o valor de N: ");
+    scanf("%d", &N);
+    return N;
+}
+
+// Função principal
+int main() {
+    // Ler o valor de N
+    int N = lerValorN();
+    
+    // Calcular a soma dos N primeiros números primos
+    int resultado = somaPrimos(N);
+    
+    // Exibir o resultado
+    exibirResultado(N, resultado);
+
+    return 0;
+}
+
+Exercício 2 
+//Pedro Henrique Camargo dos Santos
+
+#include <stdio.h>
+
+// Função para calcular a média de uma turma
+float mediaTurma(int numAlunos) {
+    float somaNotas = 0, nota;
+    // Recebe as notas de cada aluno da turma
+    for (int i = 1; i <= numAlunos; i++) {
+        printf("Digite a nota do aluno %d: ", i);
+        scanf("%f", &nota);
+        somaNotas += nota;
+    }
+    // Calcula e retorna a média da turma
+    return somaNotas / numAlunos;
+}
+
+// Função para calcular a média geral da escola
+float mediaEscola(int numTurmas) {
+    float somaMediaTurmas = 0, media;
+    int numAlunos;
+    
+    // Recebe o número de alunos de cada turma e calcula a média de cada uma
+    for (int i = 1; i <= numTurmas; i++) {
+        printf("\nDigite o número de alunos da turma %d: ", i);
+        scanf("%d", &numAlunos);
+        
+        // Chama a função mediaTurma para calcular a média de cada turma
+        media = mediaTurma(numAlunos);
+        
+        // Exibe a média de cada turma
+        printf("A média da turma %d é: %.2f\n", i, media);
+        
+        // Acumula as médias para calcular a média geral
+        somaMediaTurmas += media;
+    }
+    
+    // Calcula e retorna a média geral da escola
+    return somaMediaTurmas / numTurmas;
+}
+
+// Função principal
+int main() {
+    int numTurmas;
+    
+    // Solicita ao usuário o número de turmas
+    printf("Digite o número de turmas da escola: ");
+    scanf("%d", &numTurmas);
+    
+    // Chama a função mediaEscola para calcular a média geral da escola
+    float mediaGeral = mediaEscola(numTurmas);
+    
+    // Exibe a média geral da escola
+    printf("\nA média geral da escola é: %.2f\n", mediaGeral);
+    
+    return 0;
+}
+
+Exercício 3
+
+//Pedro Henrique Camargo dos Santos
+
+#include <stdio.h>
+
+// Função recursiva para calcular o n-ésimo termo de Fibonacci
+long long fibonacci(int n) {
+    if (n <= 1) {
+        return n;  // Base: F(0) = 0, F(1) = 1
+    } else {
+        return fibonacci(n - 1) + fibonacci(n - 2);  // Fórmula recursiva
+    }
+}
+
+int main() {
+    int n;
+    
+    // Solicita ao usuário o valor de n
+    printf("Digite o valor de n para calcular o n-ésimo termo da sequência de Fibonacci: ");
+    scanf("%d", &n);
+    
+    // Chama a função fibonacci e exibe o resultado
+    printf("O %d-ésimo termo da sequência de Fibonacci é: %lld\n", n, fibonacci(n));
+    
+    return 0;
+}
+
+Exercício 4
+
+//Pedro Henrique Camargo dos Santos
+
+#include <stdio.h>
+
+// Função para calcular o somatório de 5i^2 + 2i + 8 de i = 1 até n
+int somatorio(int n) {
+    int soma = 0;
+    
+    // Loop para calcular o somatório
+    for (int i = 1; i <= n; i++) {
+        soma += (5 * i * i + 2 * i + 8);  // Expressão do somatório
+    }
+    
+    return soma;
+}
+
+int main() {
+    int n;
+    
+    // Solicita ao usuário o valor de n
+    printf("Digite o valor de n para calcular o somatório: ");
+    scanf("%d", &n);
+    
+    // Chama a função somatorio e exibe o resultado
+    printf("O somatório de 5i^2 + 2i + 8 de i=1 até %d é: %d\n", n, somatorio(n));
+    
+    return 0;
+}
+
+Exercício 5
+
+// Pedro Henrique Camargo dos Santos
+#include &lt;stdio.h&gt;
+int soma(int a, int b);
+int main() {
+int num1, num2;
+printf(&quot;Digite o primeiro número inteiro: &quot;);
+scanf(&quot;%d&quot;, &amp;num1);
+printf(&quot;Digite o segundo número inteiro: &quot;);
+scanf(&quot;%d&quot;, &amp;num2);
+int resultado = soma(num1, num2);
+printf(&quot;A soma de %d e %d é: %d\n&quot;, num1, num2, resultado);
+return 0;
+}
+int soma(int a, int b) {
+return a + b;
+}
+
+Exercício 6
+
+// Pedro Henrique Camargo dos Santos
+#include &lt;stdio.h&gt;
+int maior(int a, int b);
+
+int main() {
+int num1, num2;
+printf(&quot;Digite o primeiro número inteiro: &quot;);
+scanf(&quot;%d&quot;, &amp;num1);
+printf(&quot;Digite o segundo número inteiro: &quot;);
+scanf(&quot;%d&quot;, &amp;num2);
+int resultado = maior(num1, num2);
+printf(&quot;O maior número entre %d e %d é: %d\n&quot;, num1, num2, resultado);
+return 0;
+}
+int maior(int a, int b) {
+return (a &gt; b) ? a : b;
+}
+
+Exercício 7 
+
+#include <stdio.h>
+
+// Protótipo da função para calcular a soma
+int calcularSoma(int vetor[], int tamanho);
+
+int main() {
+    int numeros[3];  // Vetor para armazenar os três números
+    int soma;
+
+    // Solicita ao usuário os três números inteiros
+    printf("Digite o primeiro numero: ");
+    scanf("%d", &numeros[0]);
+    
+    printf("Digite o segundo numero: ");
+    scanf("%d", &numeros[1]);
+    
+    printf("Digite o terceiro numero: ");
+    scanf("%d", &numeros[2]);
+    
+    // Chama a função para calcular a soma
+    soma = calcularSoma(numeros, 3);
+    
+    // Exibe a soma dos números
+    printf("A soma dos valores é: %d\n", soma);
+    
+    return 0;
+}
+
+// Função para calcular a soma dos valores do vetor
+int calcularSoma(int vetor[], int tamanho) {
+    int soma = 0;
+    
+    // Calcula a soma de todos os elementos do vetor
+    for (int i = 0; i < tamanho; i++) {
+        soma += vetor[i];
+    }
+    
+    return soma;  // Retorna o valor da soma
+}
+
+Lista 3 resolução completa
+
+Exercício 1
+
+#include <stdio.h>
+// Pedro Henrique Camargo 
+
+// Estrutura Pessoa
+struct Pessoa {
+    char nome[50];
+    int idade;
+};
+
+// Função para inserir dados no vetor de pessoas
+void inserirPessoas(struct Pessoa pessoas[], int tamanho) {
+    for (int i = 0; i < tamanho; i++) {
+        printf("Digite o nome da pessoa %d: ", i + 1);
+        scanf("%s", pessoas[i].nome);
+        printf("Digite a idade da pessoa %d: ", i + 1);
+        scanf("%d", &pessoas[i].idade);
+    }
+}
+
+int main() {
+    int n;
+    printf("Quantas pessoas deseja cadastrar? ");
+    scanf("%d", &n);
+
+    struct Pessoa pessoas[n];
+    inserirPessoas(pessoas, n);
+
+    printf("\nDados cadastrados:\n");
+    for (int i = 0; i < n; i++) {
+        printf("Pessoa %d: Nome = %s, Idade = %d\n", i + 1, pessoas[i].nome, pessoas[i].idade);
+    }
+    return 0;
+}
+
+Exercício 2
+
+#include <stdio.h>
+#include <string.h>
+#include <locale.h>
+//Pedro Henrique Camargo 
+// Define uma estrutura chamada Carro para armazenar dados de um carro
+typedef struct {
+    char modelo[50];  // Declara um array de caracteres para armazenar o modelo do carro
+    int ano;          // Declara uma variável inteira para o ano do carro
+    double preco;     // Declara uma variável double para o preço do carro
+} Carro;
+
+// Função para modificar o preço de um carro
+void modificarPreco(Carro *c, double novoPreco) {
+    c->preco = novoPreco;  // Atribui o novo preço ao carro apontado por c
+}
+
+// Função para imprimir os dados de um carro
+void imprimirCarro(Carro *c) {
+    printf("Modelo: %s\n", c->modelo);   // Exibe o modelo do carro
+    printf("Ano: %d\n", c->ano);         // Exibe o ano do carro
+    printf("Preço: R$ %.2lf\n", c->preco);  // Exibe o preço do carro com duas casas decimais
+}
+
+int main() {
+    setlocale(LC_ALL, "portuguese");  // Define o idioma para português (para uso de caracteres especiais)
+
+    Carro carro1;  // Declara uma variável do tipo Carro chamada carro1
+
+    strcpy(carro1.modelo, "Classic");  // Copia o valor "Classic" para o campo modelo de carro1
+    carro1.ano = 2025;             // Define o ano de carro1 como 2025
+    carro1.preco = 620000000.00;       // Define o preço de carro1 como 620000000.00
+
+    printf("Dados antes da modificação:\n");  // Exibe uma mensagem antes de mostrar os dados do carro
+    imprimirCarro(&carro1);  // Chama a função para imprimir os dados de carro1
+
+    modificarPreco(&carro1, 620000000.00);  // Modifica o preço de carro1 para 620000000.00
+
+    printf("\nDados após a modificação do preço:\n");  // Exibe uma mensagem para indicar a modificação
+    imprimirCarro(&carro1);  // Chama a função para imprimir os dados de carro1 após a modificação
+
+    return 0;  // Encerra o programa
+}
+
+Exercício 3
+
+#include <stdio.h> // Biblioteca para entrada e saída
+// Pedro Henrique Camargo 
+int calcularResultado(int v[], int n); // Declara a função calcularResultado.
+int main() {
+    int vetor[5], i, resultado; // Declara o vetor, uma variável i e uma variável para armazenar o resultado.
+
+    for (i = 0; i < 5; i++) { // Loop para preencher o vetor com valores.
+        vetor[i] = i * 2; // Atribui a cada posição do vetor o valor de i multiplicado por 2.
+    }
+
+    resultado = calcularResultado(vetor, 5); // Chama a função calcularResultado passando o vetor e seu tamanho.
+    printf("O resultado é: %d\n", resultado); // Imprime o resultado da soma dos elementos do vetor.
+
+    return 0; // Fim do programa.
+}
+
+int calcularResultado(int v[], int n) {
+    int i, soma = 0; // Declara a variável soma e a variável de controle i.
+
+    for (i = 0; i < n; i++) { // Loop para somar os elementos do vetor.
+        soma += v[i]; // Adiciona cada valor do vetor à variável soma.
+    }
+
+    return soma; // Retorna o valor total da soma dos elementos.
+}
+
+
+Exercício 4
+#include <stdio.h> // Inclui a biblioteca padrão de entrada e saída
+//Pedro Henrique Camargo
+
+// Função para calcular a média de quatro notas
+float calcularMedia(float nota1, float nota2, float nota3, float nota4) {
+    // Retorna a média das quatro notas
+    return (nota1 + nota2 + nota3 + nota4) / 4;
+}
+
+int main() {
+    // Declaração das variáveis para armazenar as notas
+    float n1, n2, n3, n4;
+    
+    // Solicita ao usuário que digite as quatro notas
+    printf("Digite as quatro notas do aluno: ");
+    // Lê as quatro notas do usuário
+    scanf("%f %f %f %f", &n1, &n2, &n3, &n4);
+
+    // Chama a função calcularMedia e armazena o resultado na variável 'media'
+    float media = calcularMedia(n1, n2, n3, n4);
+    
+    // Exibe a média formatada com duas casas decimais
+    printf("Média: %.2f\n", media);
+    
+    // Verifica se a média é maior ou igual a 7
+    if (media >= 7) {
+        // Se a média for maior ou igual a 7, o aluno está aprovado
+        printf("Aprovado\n");
+    } else {
+        // Se a média for menor que 7, o aluno está reprovado
+        printf("Reprovado\n");
+    }
+    
+    // Retorna 0 para indicar que o programa terminou com sucesso
+    return 0;
+}
+
+
+Exercício 5
+
+#include <stdio.h>
+
+// Pedro Henrique Camargo
+
+// Função para exibir números ímpares de 1 até um número fornecido,
+// exceto aqueles que são múltiplos de 7.
+void exibirImpares(int limite) {
+    // Loop para percorrer todos os números de 1 até o limite.
+    for (int i = 1; i <= limite; i++) {
+        // Verifica se o número é ímpar (i % 2 != 0)
+        if (i % 2 != 0) {
+            // Verifica se o número não é múltiplo de 7 (i % 7 != 0)
+            if (i % 7 != 0) {
+                // Exibe o número ímpar que não é múltiplo de 7
+                printf("%d\n", i);
+            }
+        }
+    }
+}
+
+int main() {
+    int numero;
+
+    // Solicita ao usuário que insira um número
+    printf("Digite um número: ");
+    scanf("%d", &numero); // Lê o número fornecido pelo usuário
+
+    // Chama a função para exibir os números ímpares
+    exibirImpares(numero);
+
+    return 0; // Retorna 0 para indicar que o programa terminou com sucesso
+}
+
+Exercício 6
+#include <stdio.h> // Inclusão da biblioteca padrão de entrada e saída
+
+// Pedro Henrique Camargo
+
+// Função que recebe um array de inteiros e seu tamanho,
+// e retorna a soma dos valores contidos no array.
+float somarValores(int valores[], int tamanho) {
+    float soma = 0; // Inicializa a variável soma como 0
+    // Loop para percorrer todos os elementos do array
+    for (int i = 0; i < tamanho; i++) {
+        soma += valores[i]; // Adiciona cada valor à soma
+    }
+    return soma; // Retorna a soma total
+}
+
+int main() {
+    int n; // Declaração da variável para armazenar a quantidade de valores
+    // Solicita ao usuário quantos valores ele deseja inserir
+    printf("Quantos valores deseja inserir? ");
+    scanf("%d", &n); // Lê a quantidade de valores
+
+    int valores[n]; // Declara um array de inteiros com tamanho n
+    // Loop para ler os valores do usuário
+    for (int i = 0; i < n; i++) {
+        // Solicita que o usuário insira o valor atual
+        printf("Digite o valor %d: ", i + 1);
+        scanf("%d", &valores[i]); // Lê o valor e o armazena no array
+    }
+
+    // Chama a função somarValores para calcular a soma dos valores
+    float soma = somarValores(valores, n);
+    // Exibe a soma e a média dos valores
+    printf("Soma: %.2f\nMédia: %.2f\n", soma, soma / n);
+    return 0; // Retorna 0 para indicar que o programa terminou com sucesso
+}
+
+Exercício 7
+
+#include <stdio.h> // Inclusão da biblioteca padrão de entrada e saída
+
+//Pedro Henrique Camargo
+
+// Função que encontra a posição do maior valor em um array de inteiros
+int encontrarMaior(int valores[], int tamanho) {
+    int maior = valores[0]; // Inicializa a variável maior com o primeiro valor do array
+    int posicao = 0; // Inicializa a posição do maior valor como 0
+    // Loop para percorrer os valores do array, começando do segundo elemento
+    for (int i = 1; i < tamanho; i++) {
+        // Verifica se o valor atual é maior que o maior encontrado até agora
+        if (valores[i] > maior) {
+            maior = valores[i]; // Atualiza o maior valor
+            posicao = i; // Atualiza a posição do maior valor
+        }
+    }
+    return posicao; // Retorna a posição do maior valor encontrado
+}
+
+int main() {
+    int n; // Declaração da variável para armazenar a quantidade de valores
+    // Solicita ao usuário quantos valores ele deseja inserir
+    printf("Quantos valores deseja inserir? ");
+    scanf("%d", &n); // Lê a quantidade de valores
+
+    int valores[n]; // Declara um array de inteiros com tamanho n
+    // Loop para ler os valores do usuário
+    for (int i = 0; i < n; i++) {
+        // Solicita que o usuário insira o valor atual
+        printf("Digite o valor %d: ", i + 1);
+        scanf("%d", &valores[i]); // Lê o valor e o armazena no array
+    }
+
+    // Chama a função encontrarMaior para obter a posição do maior valor
+    int posicaoMaior = encontrarMaior(valores, n);
+    // Exibe o maior valor e sua posição no array
+    printf("Maior valor: %d, Posição: %d\n", valores[posicaoMaior], posicaoMaior);
+    return 0; // Retorna 0 para indicar que o programa terminou com sucesso
+}
+
+
+Exercício 8
+
+#include <stdio.h> // Inclusão da biblioteca padrão de entrada e saída
+//Pedro Henrique Camargo
+// Função que exibe todos os números pares de 2 até o número fornecido
+void exibirPares(int numero) {
+    // Loop que começa em 2 e incrementa de 2 em 2 até o número fornecido
+    for (int i = 2; i <= numero; i += 2) {
+        printf("%d ", i); // Exibe o número par atual
+    }
+    printf("\n"); // Exibe uma nova linha após a lista de números pares
+}
+
+int main() {
+    int numero; // Declaração da variável para armazenar o número fornecido pelo usuário
+    // Solicita ao usuário que insira um número
+    printf("Digite um número: ");
+    scanf("%d", &numero); // Lê o número fornecido pelo usuário
+
+    // Chama a função exibirPares para mostrar os números pares até o número fornecido
+    exibirPares(numero);
+    
+    return 0; // Retorna 0 para indicar que o programa terminou com sucesso
+}
+
+Exercício 9
+
+#include <stdio.h> // Inclusão da biblioteca padrão de entrada e saída
+
+// Pedro Henrique Camargo
+
+// Função que calcula o produto de todos os valores em um array
+int multiplicarValores(int valores[], int tamanho) {
+    int produto = 1; // Inicializa a variável produto como 1
+    // Loop para percorrer todos os elementos do array
+    for (int i = 0; i < tamanho; i++) {
+        produto *= valores[i]; // Multiplica cada valor ao produto
+    }
+    return produto; // Retorna o produto total
+}
+
+int main() {
+    int n; // Declaração da variável para armazenar a quantidade de valores
+    // Solicita ao usuário quantos valores ele deseja inserir
+    printf("Quantos valores deseja inserir? ");
+    scanf("%d", &n); // Lê a quantidade de valores
+
+    int valores[n]; // Declara um array de inteiros com tamanho n
+    // Loop para ler os valores do usuário
+    for (int i = 0; i < n; i++) {
+        // Solicita que o usuário insira o valor atual
+        printf("Digite o valor %d: ", i + 1);
+        scanf("%d", &valores[i]); // Lê o valor e o armazena no array
+    }
+
+
+Exercício 10
+
+#include <stdio.h>
+
+// Pedro Henrique Camargo
+
+// Função que compara dois números e exibe o maior ou informa se são iguais.
+void maiorNumero(int num1, int num2) {
+    // Verifica se o primeiro número é maior que o segundo
+    if (num1 > num2) {
+        printf("O maior número é: %d\n", num1);
+    // Verifica se o segundo número é maior que o primeiro
+    } else if (num2 > num1) {
+        printf("O maior número é: %d\n", num2);
+    // Se nenhum dos acima, os números são iguais
+    } else {
+        printf("Os números são iguais.\n");
+    }
+}
+
+int main() {
+    int a, b;
+    // Solicita ao usuário o primeiro número
+    printf("Digite o primeiro número: ");
+    scanf("%d", &a);
+    // Solicita ao usuário o segundo número
+    printf("Digite o segundo número: ");
+    scanf("%d", &b);
+    
+    // Chama a função para verificar e exibir o maior número
+    maiorNumero(a, b);
+    return 0;
+}
+
+Exercício 11
+
+
+#include <stdio.h>
+// Pedro Henrique Camargo
+// Função que recebe três números e retorna o menor deles.
+int menorNumero(int num1, int num2, int num3) {
+    // Compara os três números para encontrar o menor
+    if (num1 <= num2 && num1 <= num3) return num1; // num1 é o menor
+    else if (num2 <= num1 && num2 <= num3) return num2; // num2 é o menor
+    else return num3; // num3 é o menor
+}Código:
+
+int main() {
+    int a, b, c;
+    // Solicita ao usuário os três números
+    printf("Digite o primeiro número: ");
+    scanf("%d", &a);
+    printf("Digite o segundo número: ");
+    scanf("%d", &b);
+    printf("Digite o terceiro número: ");
+    scanf("%d", &c);
+    
+    // Chama a função para encontrar o menor número
+    int menor = menorNumero(a, b, c);
+    // Exibe o menor número
+    printf("O menor número é: %d\n", menor);
+    return 0;
+}
+
+Exercício 12
+
+#include <stdio.h>
+// Pedro Henrique Camargo
+// Função que exibe os números de um vetor na ordem inversa.
+void exibirInverso(int vetor[], int tamanho) {
+    printf("Números em ordem inversa: ");
+    // Loop para percorrer o vetor do final para o início
+    for (int i = tamanho - 1; i >= 0; i--) {
+        printf("%d ", vetor[i]); // Exibe cada número
+    }
+    printf("\n"); // Nova linha após exibir todos os números
+}
+
+int main() {
+    int numeros[10]; // Declara um vetor de 10 inteiros
+    
+    // Preenche o vetor com números fornecidos pelo usuário
+    for (int i = 0; i < 10; i++) {
+        printf("Digite o número %d: ", i + 1);
+        scanf("%d", &numeros[i]);
+    }
+    
+    // Chama a função para exibir os números na ordem inversa
+    exibirInverso(numeros, 10);
+    return 0;
+}
+
+Exercício 13
+
+#include <stdio.h>
+// Pedro Henrique Camargo
+// Função que calcula a média de três números inteiros.
+float calcularMedia(int num1, int num2, int num3) {
+    // Calcula a média aritmética dos três números
+    return (num1 + num2 + num3) / 3.0;
+}
+
+int main() {
+    int a, b, c;
+    // Solicita ao usuário os três números
+    printf("Digite o primeiro número: ");
+    scanf("%d", &a);
+    printf("Digite o segundo número: ");
+    scanf("%d", &b);
+    printf("Digite o terceiro número: ");
+    scanf("%d", &c);
+    
+    // Chama a função para calcular a média
+    float media = calcularMedia(a, b, c);
+    // Exibe a média com duas casas decimais
+    printf("A média é: %.2f\n", media);
+    return 0;
+}
+
+Exercício 14
+
+#include <stdio.h>
+// Pedro Henrique Camargo
+// Função que calcula um resultado baseado em três parâmetros.
+int calcularResultado(int soma, int primeiroValor, int ultimoValor) {
+    // Retorna o cálculo com a soma e os valores do vetor
+    return soma + (primeiroValor * 5) + (ultimoValor * 2);
+}
+
+int main() {
+    int vetor[10]; // Declara um vetor de 10 inteiros
+    int soma = 0; // Inicializa a soma
+    
+    // Preenche o vetor com valores de 1 a 10 e calcula a soma
+    for (int i = 0; i < 10; i++) {
+        vetor[i] = i + 1; // Preenche o vetor com números de 1 a 10
+        soma += vetor[i]; // Acumula a soma dos valores
+    }
+    
+    // Chama a função para calcular o resultado
+    int resultado = calcularResultado(soma, vetor[0], vetor[9]);
+    // Exibe o resultado da função
+    printf("O resultado é: %d\n", resultado);
+    return 0;
+}
+
+
+
+
+
+
+
+
